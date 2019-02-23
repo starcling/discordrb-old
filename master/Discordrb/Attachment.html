@@ -358,6 +358,29 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#spoiler%3F-instance_method" title="#spoiler? (instance method)">#<strong>spoiler?</strong>  &#x21d2; true, false </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether this file is tagged as a spoiler.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -855,12 +878,69 @@ do with CDNs.</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="spoiler?-instance_method">
+  
+    #<strong>spoiler?</strong>  &#x21d2; <tt>true</tt>, <tt>false</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns whether this file is tagged as a spoiler.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>true</tt>, <tt>false</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>whether this file is tagged as a spoiler.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/data/attachment.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_spoiler?'>spoiler?</span>
+  <span class='ivar'>@filename</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SPOILER_</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Mon Feb 18 21:01:33 2019 by
+  Generated on Sat Feb 23 21:34:11 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.18 (ruby-2.5.1).
 </div>
