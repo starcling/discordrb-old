@@ -237,7 +237,35 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The file that have been saved by calls to <span class='object_link'><a href="#attach_file-instance_method" title="Discordrb::Events::MessageEvent#attach_file (method)">#attach_file</a></span> and will be sent to Discord upon completion.</p>
+    <span class="summary_desc"><div class='inline'><p>The file that has been saved by a call to <span class='object_link'><a href="#attach_file-instance_method" title="Discordrb::Events::MessageEvent#attach_file (method)">#attach_file</a></span> and will be sent to Discord upon completion.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filename-instance_method" title="#filename (instance method)">#<strong>filename</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The filename set in <span class='object_link'><a href="#attach_file-instance_method" title="Discordrb::Events::MessageEvent#attach_file (method)">#attach_file</a></span> that will override the original filename when sent.</p>
 </div></span>
   
 </li>
@@ -376,7 +404,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#attach_file-instance_method" title="#attach_file (instance method)">#<strong>attach_file</strong>(file)  &#x21d2; Object </a>
+      <a href="#attach_file-instance_method" title="#attach_file (instance method)">#<strong>attach_file</strong>(file, filename: nil)  &#x21d2; Object </a>
     
 
     
@@ -470,7 +498,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#send_file-instance_method" title="#send_file (instance method)">#<strong>send_file</strong>(file, caption: nil)  &#x21d2; Discordrb::Message </a>
+      <a href="#send_file-instance_method" title="#send_file (instance method)">#<strong>send_file</strong>(file, caption: nil, filename: nil)  &#x21d2; Discordrb::Message </a>
     
 
     
@@ -561,16 +589,17 @@
       <pre class="lines">
 
 
-107
-108
-109
 110
 111
 112
-113</pre>
+113
+114
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span>
   <span class='ivar'>@bot</span> <span class='op'>=</span> <span class='id identifier rubyid_bot'>bot</span>
@@ -578,6 +607,7 @@
   <span class='ivar'>@channel</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span><span class='period'>.</span><span class='id identifier rubyid_channel'>channel</span>
   <span class='ivar'>@saved_message</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
   <span class='ivar'>@file</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@filename</span> <span class='op'>=</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -644,10 +674,10 @@
       <pre class="lines">
 
 
-100</pre>
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 103</span>
 
 <span class='id identifier rubyid_delegate'>delegate</span> <span class='symbol'>:author</span><span class='comma'>,</span> <span class='symbol'>:channel</span><span class='comma'>,</span> <span class='symbol'>:content</span><span class='comma'>,</span> <span class='symbol'>:timestamp</span><span class='comma'>,</span> <span class='label'>to:</span> <span class='symbol'>:message</span></pre>
     </td>
@@ -706,10 +736,10 @@
       <pre class="lines">
 
 
-100</pre>
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 103</span>
 
 <span class='id identifier rubyid_delegate'>delegate</span> <span class='symbol'>:author</span><span class='comma'>,</span> <span class='symbol'>:channel</span><span class='comma'>,</span> <span class='symbol'>:content</span><span class='comma'>,</span> <span class='symbol'>:timestamp</span><span class='comma'>,</span> <span class='label'>to:</span> <span class='symbol'>:message</span></pre>
     </td>
@@ -772,10 +802,10 @@
       <pre class="lines">
 
 
-100</pre>
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 103</span>
 
 <span class='id identifier rubyid_delegate'>delegate</span> <span class='symbol'>:author</span><span class='comma'>,</span> <span class='symbol'>:channel</span><span class='comma'>,</span> <span class='symbol'>:content</span><span class='comma'>,</span> <span class='symbol'>:timestamp</span><span class='comma'>,</span> <span class='label'>to:</span> <span class='symbol'>:message</span></pre>
     </td>
@@ -796,7 +826,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the file that have been saved by calls to <span class='object_link'><a href="#attach_file-instance_method" title="Discordrb::Events::MessageEvent#attach_file (method)">#attach_file</a></span> and will be sent to Discord upon completion.</p>
+    <p>Returns the file that has been saved by a call to <span class='object_link'><a href="#attach_file-instance_method" title="Discordrb::Events::MessageEvent#attach_file (method)">#attach_file</a></span> and will be sent to Discord upon completion.</p>
 
 
   </div>
@@ -814,7 +844,7 @@
       
       
         &mdash;
-        <div class='inline'><p>the file that have been saved by calls to <span class='object_link'><a href="#attach_file-instance_method" title="Discordrb::Events::MessageEvent#attach_file (method)">#attach_file</a></span> and will be sent to Discord upon completion.</p>
+        <div class='inline'><p>the file that has been saved by a call to <span class='object_link'><a href="#attach_file-instance_method" title="Discordrb::Events::MessageEvent#attach_file (method)">#attach_file</a></span> and will be sent to Discord upon completion.</p>
 </div>
       
     </li>
@@ -836,6 +866,65 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_file'>file</span>
   <span class='ivar'>@file</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="filename-instance_method">
+  
+    #<strong>filename</strong>  &#x21d2; <tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the filename set in <span class='object_link'><a href="#attach_file-instance_method" title="Discordrb::Events::MessageEvent#attach_file (method)">#attach_file</a></span> that will override the original filename when sent.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the filename set in <span class='object_link'><a href="#attach_file-instance_method" title="Discordrb::Events::MessageEvent#attach_file (method)">#attach_file</a></span> that will override the original filename when sent.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 89</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_filename'>filename</span>
+  <span class='ivar'>@filename</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1011,10 +1100,10 @@
       <pre class="lines">
 
 
-105</pre>
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 108</span>
 
 <span class='id identifier rubyid_delegate'>delegate</span> <span class='symbol'>:server</span><span class='comma'>,</span> <span class='label'>to:</span> <span class='symbol'>:channel</span></pre>
     </td>
@@ -1073,10 +1162,10 @@
       <pre class="lines">
 
 
-100</pre>
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 103</span>
 
 <span class='id identifier rubyid_delegate'>delegate</span> <span class='symbol'>:author</span><span class='comma'>,</span> <span class='symbol'>:channel</span><span class='comma'>,</span> <span class='symbol'>:content</span><span class='comma'>,</span> <span class='symbol'>:timestamp</span><span class='comma'>,</span> <span class='label'>to:</span> <span class='symbol'>:message</span></pre>
     </td>
@@ -1094,7 +1183,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="attach_file-instance_method">
   
-    #<strong>attach_file</strong>(file)  &#x21d2; <tt>Object</tt> 
+    #<strong>attach_file</strong>(file, filename: nil)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1127,6 +1216,21 @@ a caption.</p>
       
     </li>
   
+    <li>
+      
+        <span class='name'>filename</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Overrides the filename of the uploaded file</p>
+</div>
+      
+    </li>
+  
 </ul>
 
 <p class="tag_title">Raises:</p>
@@ -1149,20 +1253,22 @@ a caption.</p>
       <pre class="lines">
 
 
-130
-131
-132
-133
-134
-135</pre>
+136
+137
+138
+139
+140
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 136</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_attach_file'>attach_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_attach_file'>attach_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='label'>filename:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Argument is not a file!</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>File</span><span class='rparen'>)</span>
 
   <span class='ivar'>@file</span> <span class='op'>=</span> <span class='id identifier rubyid_file'>file</span>
+  <span class='ivar'>@filename</span> <span class='op'>=</span> <span class='id identifier rubyid_filename'>filename</span>
   <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1195,15 +1301,17 @@ a caption.</p>
       <pre class="lines">
 
 
-138
-139
-140</pre>
+145
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_detach_file'>detach_file</span>
   <span class='ivar'>@file</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@filename</span> <span class='op'>=</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1252,12 +1360,12 @@ a caption.</p>
       <pre class="lines">
 
 
-143
-144
-145</pre>
+151
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 151</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_from_bot?'>from_bot?</span>
   <span class='ivar'>@message</span><span class='period'>.</span><span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span> <span class='op'>==</span> <span class='ivar'>@bot</span><span class='period'>.</span><span class='id identifier rubyid_profile'>profile</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
@@ -1270,7 +1378,7 @@ a caption.</p>
       <div class="method_details ">
   <h3 class="signature " id="send_file-instance_method">
   
-    #<strong>send_file</strong>(file, caption: nil)  &#x21d2; <tt><span class='object_link'><a href="../Message.html" title="Discordrb::Message (class)">Discordrb::Message</a></span></tt> 
+    #<strong>send_file</strong>(file, caption: nil, filename: nil)  &#x21d2; <tt><span class='object_link'><a href="../Message.html" title="Discordrb::Message (class)">Discordrb::Message</a></span></tt> 
   
 
   
@@ -1330,6 +1438,21 @@ because it avoids rate limiting problems</p>
       
     </li>
   
+    <li>
+      
+        <span class='name'>filename</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Overrides the filename of the uploaded file</p>
+</div>
+      
+    </li>
+  
 </ul>
 
 <p class="tag_title">Returns:</p>
@@ -1356,15 +1479,15 @@ because it avoids rate limiting problems</p>
       <pre class="lines">
 
 
-123
-124
-125</pre>
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 128</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_send_file'>send_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='label'>caption:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='ivar'>@message</span><span class='period'>.</span><span class='id identifier rubyid_channel'>channel</span><span class='period'>.</span><span class='id identifier rubyid_send_file'>send_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='label'>caption:</span> <span class='id identifier rubyid_caption'>caption</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_send_file'>send_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='label'>caption:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>filename:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@message</span><span class='period'>.</span><span class='id identifier rubyid_channel'>channel</span><span class='period'>.</span><span class='id identifier rubyid_send_file'>send_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='label'>caption:</span> <span class='id identifier rubyid_caption'>caption</span><span class='comma'>,</span> <span class='label'>filename:</span> <span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1413,12 +1536,12 @@ because it avoids rate limiting problems</p>
       <pre class="lines">
 
 
-149
-150
-151</pre>
+157
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 157</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_voice'>voice</span>
   <span class='ivar'>@bot</span><span class='period'>.</span><span class='id identifier rubyid_voice'>voice</span><span class='lparen'>(</span><span class='ivar'>@message</span><span class='period'>.</span><span class='id identifier rubyid_channel'>channel</span><span class='period'>.</span><span class='id identifier rubyid_server'>server</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
@@ -1433,7 +1556,7 @@ because it avoids rate limiting problems</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Feb 23 21:34:10 2019 by
+  Generated on Sat Feb 23 21:43:29 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.18 (ruby-2.5.1).
 </div>
