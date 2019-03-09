@@ -86,8 +86,8 @@
 <h2>Dependencies</h2>
 
 <ul>
-<li>Ruby &gt;= 2.3</li>
-<li>An installed build system for native extensions (on Windows for Ruby &lt; 2.4, try the <a href="https://rubyinstaller.org/downloads/">DevKit</a>; installation instructions <a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit#quick-start">here</a> - you only need to do the quick start)</li>
+<li>Ruby &gt;= 2.4 supported</li>
+<li>An installed build system for native extensions (on Windows, make sure you download the &quot;Ruby+Devkit&quot; version of <a href="https://rubyinstaller.org/downloads/">RubyInstaller</a>)</li>
 </ul>
 
 <blockquote>
@@ -171,28 +171,11 @@
 
 <p>To enable the changes</p>
 
-<h5>RubyInstaller for ruby 2.3.3 and below</h5>
-
-<p>Download the development kit <a href="https://rubyinstaller.org/downloads/">here</a> (scroll down to &quot;Development Kit&quot;, then choose the one for Ruby 2.0 and your system architecture) and extract it somewhere. Open a command prompt in that folder and run:</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_ruby'>ruby</span> <span class='id identifier rubyid_dk'>dk</span><span class='period'>.</span><span class='id identifier rubyid_rb'>rb</span> <span class='id identifier rubyid_init'>init</span>
-<span class='id identifier rubyid_ruby'>ruby</span> <span class='id identifier rubyid_dk'>dk</span><span class='period'>.</span><span class='id identifier rubyid_rb'>rb</span> <span class='id identifier rubyid_install'>install</span>
-</code></pre>
-
-<p>Then reinstall discordrb:</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_uninstall'>uninstall</span> <span class='id identifier rubyid_discordrb'>discordrb</span>
-<span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_install'>install</span>
-
-<span class='comment'># Or, if you didn&#39;t use bundler:
-</span><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_discordrb'>discordrb</span>
-</code></pre>
-
 <p><strong>If Ruby complains about <code>ffi_c</code> not being able to be found:</strong></p>
 
 <p>For example</p>
 
-<pre class="code ruby"><code class="ruby">C:/Ruby23-x64/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require&#39;: cannot load such file -- ffi_c (LoadError)
+<pre class="code ruby"><code class="ruby">C:/Ruby25-x64/lib/ruby/2.5.0/rubygems/core_ext/kernel_require.rb:55:in `require&#39;: cannot load such file -- ffi_c (LoadError)
 </code></pre>
 
 <p>Your ffi setup is screwed up, first run <code>gem uninstall ffi</code> (uninstall all versions if it asks you, say yes to any unmet dependencies), then run <code>gem install ffi --platform=ruby</code> to fix it. If it says something about build tools, follow the steps in the first troubleshooting section.</p>
@@ -275,9 +258,9 @@
 </div></div>
 
       <div id="footer">
-  Generated on Sat Feb 23 21:43:22 2019 by
+  Generated on Sat Mar  9 22:36:35 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.18 (ruby-2.5.1).
+  0.9.18 (ruby-2.6.1).
 </div>
 
     </div>
