@@ -231,22 +231,22 @@
       <pre class="lines">
 
 
-229
-230
-231
-232
-233
-234
-235</pre>
+237
+238
+239
+240
+241
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 229</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 237</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_after_call'>after_call</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_send_message'>send_message</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_saved_message'>saved_message</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_saved_message'>saved_message</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
   <span class='kw'>else</span>
-    <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_send_file'>send_file</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='label'>caption:</span> <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_saved_message'>saved_message</span><span class='comma'>,</span> <span class='label'>filename:</span> <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_send_file'>send_file</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='label'>caption:</span> <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_saved_message'>saved_message</span><span class='comma'>,</span> <span class='label'>filename:</span> <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='label'>spoiler:</span> <span class='id identifier rubyid_event'>event</span><span class='period'>.</span><span class='id identifier rubyid_file_spoiler'>file_spoiler</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -291,14 +291,6 @@
       <pre class="lines">
 
 
-167
-168
-169
-170
-171
-172
-173
-174
 175
 176
 177
@@ -350,10 +342,18 @@
 223
 224
 225
-226</pre>
+226
+227
+228
+229
+230
+231
+232
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'lib/discordrb/events/message.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_matches?'>matches?</span><span class='lparen'>(</span><span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
   <span class='comment'># Check for the proper event type
@@ -425,7 +425,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Mar  9 23:21:30 2019 by
+  Generated on Sat Mar  9 23:58:03 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.18 (ruby-2.6.1).
 </div>
