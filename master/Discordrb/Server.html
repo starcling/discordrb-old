@@ -3640,7 +3640,7 @@ For more information about Discord&#39;s OAuth2 implementation, see: <a href="ht
       
       
         &mdash;
-        <div class='inline'><p>Type of channel to create (0: text, 2: voice, 4: category)</p>
+        <div class='inline'><p>Type of channel to create (0: text, 2: voice, 4: category, 5: news, 6: store)</p>
 </div>
       
     </li>
@@ -3795,7 +3795,7 @@ For more information about Discord&#39;s OAuth2 implementation, see: <a href="ht
       
       
         &mdash;
-        <div class='inline'><p>if type is not 0 (text), 2 (voice), or 4 (category)</p>
+        <div class='inline'><p>if type is not 0 (text), 2 (voice), 4 (category), 5 (news), or 6 (store)</p>
 </div>
       
     </li>
@@ -3823,7 +3823,7 @@ For more information about Discord&#39;s OAuth2 implementation, see: <a href="ht
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_channel'>create_channel</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='label'>topic:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bitrate:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>user_limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>permission_overwrites:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>parent:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>nsfw:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>rate_limit_per_user:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>position:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>reason:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_type'>type</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Channel.html" title="Discordrb::Channel (class)">Channel</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Channel.html#TYPES-constant" title="Discordrb::Channel::TYPES (constant)">TYPES</a></span></span><span class='lbracket'>[</span><span class='id identifier rubyid_type'>type</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_type'>type</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Symbol</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Channel type must be either 0 (text), 2 (voice), or 4 (category)!</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Channel type must be either 0 (text), 2 (voice), 4 (category), news (5), or store (6)!</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>6</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_permission_overwrites'>permission_overwrites</span><span class='period'>.</span><span class='id identifier rubyid_map!'>map!</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_e'>e</span><span class='op'>|</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Overwrite.html" title="Discordrb::Overwrite (class)">Overwrite</a></span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span> <span class='op'>:</span> <span class='id identifier rubyid_e'>e</span> <span class='rbrace'>}</span> <span class='kw'>if</span> <span class='id identifier rubyid_permission_overwrites'>permission_overwrites</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parent_id'>parent_id</span> <span class='op'>=</span> <span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:resolve_id</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_resolve_id'>resolve_id</span> <span class='op'>:</span> <span class='kw'>nil</span>
@@ -7064,7 +7064,7 @@ stylish way. <code>nil</code> if the widget is not enabled.</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Apr  6 14:02:33 2019 by
+  Generated on Sat Apr  6 14:10:29 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.6.2).
 </div>
