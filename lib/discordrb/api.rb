@@ -65,6 +65,7 @@ module Discordrb::API
 
   # Wait a specified amount of time synchronised with the specified mutex.
   def sync_wait(time, mutex)
+    time = 1 if time.negative?
     mutex.synchronize { sleep time }
   end
 
